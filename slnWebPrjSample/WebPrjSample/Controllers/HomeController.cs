@@ -11,7 +11,7 @@ namespace WebPrjSample.Controllers
 {
     public class HomeController : Controller
     {
-        WebPrjSampleEntities3 db = new WebPrjSampleEntities3();
+        WebPrjSampleEntities db = new WebPrjSampleEntities();
         public ActionResult Index()
         {
             var product = db.tProduct.OrderByDescending(m => m.fId).ToList();

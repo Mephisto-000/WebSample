@@ -13,10 +13,10 @@ namespace WebPrjSample.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebPrjSampleEntities3 : DbContext
+    public partial class WebPrjSampleEntities : DbContext
     {
-        public WebPrjSampleEntities3()
-            : base("name=WebPrjSampleEntities3")
+        public WebPrjSampleEntities()
+            : base("name=WebPrjSampleEntities")
         {
         }
     
