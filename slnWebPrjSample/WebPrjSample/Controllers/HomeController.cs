@@ -18,6 +18,24 @@ namespace WebPrjSample.Controllers
             return View(product);
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(string fUserId, string fPwd)
+        {
+            var member = db.tMember.Where(m => m.fUserId == fUserId && m.fPwd == fPwd)
+                                   .FirstOrDefault();
+            if (member == null)
+            {
+                ViewBag.Message = "帳號密碼錯誤，登入失敗";
+                return View();
+            }
 
+            Session["Welcome"] = member.fName + "歡迎光臨";
+            FormsAuthentication.RedirectFromLoginPage(fUserId, true);
+            return RedirectToAction("Index", "Member");
+        }
     }
 }

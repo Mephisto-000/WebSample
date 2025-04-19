@@ -5,23 +5,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 雨傘測試網站</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("雨傘測試網站", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("雨傘測試網站", "Index", "Member", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="切換導覽" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("註冊", "Register", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("登錄", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("首頁", "Index", "Member", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("購物車", "ShoppingCar", "Member", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("訂單", "OrderList", "Member", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("登出", "LogOut", "Member", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li><a href="#">@Session["Welcome"]</a></li>
                 </ul>
             </div>
         </div>
