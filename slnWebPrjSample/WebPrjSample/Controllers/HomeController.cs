@@ -37,5 +37,27 @@ namespace WebPrjSample.Controllers
             FormsAuthentication.RedirectFromLoginPage(fUserId, true);
             return RedirectToAction("Index", "Member");
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(tMember pMember)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return View();
+            }
+            var member = db.tMember.Where(m => m.fUserId == pMember.fUserId)
+                                   .FirstOrDefault();
+            if (member == null)
+            {
+                db.tMember.Add(pMember);
+                db.SaveChanges();
+                return RedirectToAction("Login");
+            }
+            ViewBag.Message = "此帳號有使用，註冊失敗";
+            return View();
+        }
     }
 }
