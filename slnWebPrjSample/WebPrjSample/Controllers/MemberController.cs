@@ -33,6 +33,33 @@ namespace WebPrjSample.Controllers
             return View(orderDetails);
         }
 
+        [HttpPost]
+        public ActionResult ShoppingCar(string fReceiver, string fPhone, string fEmail, string fAddress)
+        {
+            string fUserId = User.Identity.Name;
+            string guid = Guid.NewGuid().ToString();
+
+            tOrder order = new tOrder();
+            order.fOrderGuid = guid;
+            order.fUserId = fUserId;
+            order.fReceiver = fReceiver;
+            order.fPhone = fPhone;
+            order.fEmail = fEmail;
+            order.fAddress = fAddress;
+            order.fDate = DateTime.Now;
+            db.tOrder.Add(order);
+
+            var carList = db.tOrderDetail.Where(m => m.fIsApproved == "否" && m.fUserId == fUserId).ToList();
+            foreach(var item in carList)
+            {
+                item.fOrderGuid = guid;
+                item.fIsApproved = "是";
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("OrderList");
+        }
+
         public ActionResult AddCar(string fPId)
         {
             string fUserId = User.Identity.Name;

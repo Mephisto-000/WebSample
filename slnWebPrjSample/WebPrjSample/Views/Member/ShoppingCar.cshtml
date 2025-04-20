@@ -66,5 +66,45 @@
         </td>
     </tr>
 }
-
 </table>
+
+<form action="@Url.Action("ShoppingCar")" method="post">
+    <div class="form-horizontal">
+        <h4>請填寫收件人資料</h4>
+        <hr />
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人姓名</span>
+            <div class="col-md-10">
+                <input type="text" id="fRecevier" name="fRecevier" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人手機</span>
+            <div class="col-md-10">
+                <input type="tel" id="fPhone" name="fPhone" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人信箱</span>
+            <div class="col-md-10">
+                <input type="email" id="fEmail" name="fEmail" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人地址</span>
+            <div class="col-md-10">
+                <input type="text" id="fAddress" name="fAddress" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="確認訂購" class="btn btn-outline-dark" />
+            </div>
+        </div>
+    </div>
+</form>
