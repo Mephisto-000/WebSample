@@ -94,5 +94,20 @@ namespace WebPrjSample.Controllers
             db.SaveChanges();
             return RedirectToAction("ShoppingCar");
         }
+
+        public ActionResult OrderList()
+        {
+            string fUserId = User.Identity.Name;
+
+            var orders = db.tOrder.Where(m => m.fUserId == fUserId).OrderByDescending(m => m.fDate).ToList();
+
+            return View(orders);
+        }
+
+        public ActionResult OrderDetail(string fOrderGuid)
+        {
+            var orderDetails = db.tOrderDetail.Where(m => m.fOrderGuid == fOrderGuid).ToList();
+            return View(orderDetails);
+        }
     }
 }
