@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 雨傘測試網站</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -22,7 +23,7 @@
                     <li>@Html.ActionLink("購物車", "ShoppingCar", "Member", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("訂單", "OrderList", "Member", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("登出", "LogOut", "Member", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li><a href="#">@Session["Welcome"]</a></li>
+                    <li><a href="#" class="nav-link">@Session["Welcome"]</a></li>
                 </ul>
             </div>
         </div>

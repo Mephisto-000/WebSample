@@ -65,7 +65,7 @@ namespace WebPrjSample.Controllers
             string fUserId = User.Identity.Name;
             var currentCar = db.tOrderDetail.Where(m => m.fPId == fPId && m.fIsApproved == "否"
                                                                        && m.fUserId == fUserId).FirstOrDefault();
-            if (currentCar != null)
+            if (currentCar == null)
             {
 
                 var product = db.tProduct.Where(m => m.fPId == fPId).FirstOrDefault();

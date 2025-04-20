@@ -11,16 +11,37 @@ namespace WebPrjSample.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     public partial class tOrder
     {
         public int fId { get; set; }
+
+        [DisplayName("訂單編號")]
         public string fOrderGuid { get; set; }
+
+        [DisplayName("會員帳號")]
         public string fUserId { get; set; }
+
+        [DisplayName("收件人姓名")]
+        [Required]
         public string fReceiver { get; set; }
+
+        [DisplayName("收件人電話")]
+        [Required]
+        [Phone]
         public string fPhone { get; set; }
+
+        [DisplayName("收件人信箱")]
+        [Required]
+        [EmailAddress]
         public string fEmail { get; set; }
+
+        [DisplayName("收件人地址")]
+        [Required]
         public string fAddress { get; set; }
+
+        [DisplayName("訂單日期")]
         public Nullable<System.DateTime> fDate { get; set; }
     }
 }
